@@ -5,7 +5,7 @@ using UnityEngine;
 public class SelectPanel : MonoBehaviour
 {
     [SerializeField] private Transform _container;
-    [SerializeField] private Transform _objectPlacer;
+    [SerializeField] private ObjectPlacer _objectPlacer;
     [SerializeField] private List<ItemData> _items;
     [SerializeField] private ItemView _itemTemplate;
 
@@ -25,9 +25,9 @@ public class SelectPanel : MonoBehaviour
         itemView.ItemDisabled += OnItemDisabled;
     }
 
-    private void OnItemSelected(ItemData item)
+    private void OnItemSelected(ItemData itemData)
     {
-
+        _objectPlacer.SetInstalledObject(itemData);
     }
 
     private void OnItemDisabled(ItemView itemView)
